@@ -105,7 +105,7 @@ public class Main {
 		return comprador;
 
 	}
-
+*/
 	public static void imprimirVendedor(Vendedor pVendedor) {
 		String admin = "No";
 		if (pVendedor.isEsAdmin() == true) {
