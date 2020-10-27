@@ -10,16 +10,21 @@ public class Alumno {
 
 	
 
+	@Override
+	public String toString() {
+		return "Alumno [RUT=" + RUT + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
+				+ "]";
+	}
 
 
-	
 
-	public Alumno(String RUT, String nombre, String apellido, String direccion) {
+	public Alumno(String pRUT, String pNombre, String pApellido, String pDireccion) {
 		super();
-		this.RUT = RUT;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.direccion = direccion;
+		this.RUT=pRUT;
+		this.nombre = pNombre;
+		this.apellido = pApellido;
+		this.direccion = pDireccion;
+
 	}
 
 	protected String RUT;
