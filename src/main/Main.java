@@ -1,10 +1,13 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import sistema.Alumno;
+import sistema.Materia;
 import sistema.Menu;
 
 public class Main {
@@ -26,7 +29,9 @@ public class Main {
 		boolean continuar = false;
 		int resultado;
 		List<Alumno> listaAlumno = new ArrayList<Alumno>();
-	//	List<Comprador> listaCompradores = new ArrayList<Comprador>();
+		List<Materia> listaMateria=new ArrayList<Materia>();
+		
+		// List<Comprador> listaCompradores = new ArrayList<Comprador>();
 
 		do {
 			resultado = menuPrincipal.contruirMenu(opcionesMenu, reader);
@@ -34,31 +39,19 @@ public class Main {
 				listaAlumno.add(obtenerDatosAlumno());
 				System.out.println("Alumno creado....");
 
-			/*} else if (resultado == 2) {
-				//listaCompradores.add(obtenerDatosComprador());
-				//System.out.println("Comprador creado....");
-			} else if (resultado == 3) {
+			} else if (resultado == 2) {
 				System.out.println(listaAlumno);
-			} else if (resultado == 4) {
-				System.out.println(listaCompradores);
-				*/
-			} else if (resultado == 5) {
+			} else if (resultado == 3) {
+				System.out.println();
+
+			} else if (resultado == 7) {
 				System.out.println("Saliendo ....");
 				continuar = true;
 			}
 
 		} while (!continuar);
 
-		// contruirMenu(List<String> pOpcionesMenu, Scanner leer)
-		/*
-		 * int idVendedor=1; String nombreVendedor="Pepito Grillo"; String
-		 * correoVendedor="pepito.grillo@pinocho.com"; boolean esAdmin=true; String
-		 * password="1234";
-		 * 
-		 * Vendedor
-		 * vendedor1=crearVendedor(idVendedor,nombreVendedor,correoVendedor,esAdmin,
-		 * password); imprimirVendedor(vendedor1);
-		 */
+		
 	}
 
 	private static Alumno obtenerDatosAlumno() {
@@ -72,7 +65,7 @@ public class Main {
 		String apellAlumno = reader.nextLine();
 		System.out.println("Introduzca Apellido: ");
 		String dirAlumno = reader.nextLine();
-		System.out.println("introduce Direccion"); 
+		System.out.println("introduce Direccion");
 
 		return crearAlumno(rUTAlumno, nomAlumno, apellAlumno, dirAlumno);
 
@@ -94,44 +87,46 @@ public class Main {
 	}
 
 	public static Alumno crearAlumno(String pRUT, String pNombre, String pApellido, String pDireccion) {
-		Alumno alumno = new Alumno(pRUT, pNombre,pApellido,pDireccion);
+		Alumno alumno = new Alumno(pRUT, pNombre, pApellido, pDireccion);
 		return alumno;
 
 	}
-}
-/*	public static Comprador crearComprador(int pId, String pNombre, String pCorreo, boolean pEsAdmin,
-			String pPassword) {
-		Comprador comprador = new Comprador(pId, pNombre, pCorreo, pEsAdmin, pPassword);
-		return comprador;
+
+	public static void listarAlumnos1(Alumno pAlumno) {
+
+		System.out.println("RUT Alumno: " + pAlumno.getRUT());
+		System.out.println("Nombre Alumno: " + pAlumno.getNombre());
+		System.out.println("Apellido Alumno: " + pAlumno.getApellido());
+		System.out.println("Direccion Alumno: " + pAlumno.getDireccion());
 
 	}
-*/
-	public static void imprimirVendedor(Vendedor pVendedor) {
-		String admin = "No";
-		if (pVendedor.isEsAdmin() == true) {
-			admin = "Si";
-		}
-		System.out.println("Id vendedor: " + pVendedor.getId());
-		System.out.println("Nombre: " + pVendedor.getNombre());
-		System.out.println("Correo vendedor: " + pVendedor.getCorreo());
-		System.out.println("Es Admin: " + admin);
+	public static void AgregarMaterias (Alumno Palumno,Materia pMateria ) {
+		
+		System.out.println("RUT Alumno: " + Palumno.getRUT());
+		System.out.println("Matematicas" + pMateria.getMatematicas());
+		//faltan datos
+		
+		
+	}
+	
+	public static Materia crearMateria (String pRUT,String pMatematicas, String pLenguaje, String pCiencias, String pHistoria) {
+		Materia materia = new Materia(pMatematicas, pLenguaje, pCiencias, pHistoria);
+		return materia;
+	}
+	
+	
+	private static Materia obtenerDatosAlumno1() {
+		
+			contadorId = contadorId + 1;
+			String rutAlumno = contadorId;
+			reader.nextLine();
+			System.out.println("Introduzca RUT: ");
+			String Materia = reader.nextLine();
+			System.out.println("seleccionar materia ");
+			return crearMateria(rutAlumno,Materia);			
+			
+	}
+			
 	}
 
-	private static Comprador obtenerDatosComprador() {
-
-		contadorId = contadorId + 1;
-		int idComprador = contadorId;
-		reader.nextLine();
-		System.out.println("Introduzca Nombre: ");
-		String nomComp = reader.nextLine();
-		System.out.println("Introduzca Correo: ");
-		String correoComp = reader.nextLine();
-		System.out.println("Introduzca password: ");
-		String passComp = reader.nextLine();
-		boolean isAdm = false;
-
-		return crearComprador(idComprador, nomComp, correoComp, isAdm, passComp);
-	}
-}
-*/
 
